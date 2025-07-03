@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Gochi Hand', cursive;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        body {
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:first-child {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-links a:last-child {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            opacity: 0.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="jennie.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <header>
+            <div class="logo">My Web Project</div>
+        </header>
+
+        <section class="hero">
+            <h1>My Web Projects</h1>
+            <p>semua web yang saya kembangkan.</p>
+        </section>
+
+        <h2 class="section-title">Featured Work</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://files.catbox.moe/ajh6zc.jpg" alt="A black background with the name 'Ismail' written in a flowing white script at the top. Below it, a sad quote reads 'i love him and miss him but it's all nothing to him, he doesn't care'. A small Instagram icon and '© ismail sopani all rights reserved.' are at the bottom.">
+                </div>
+                <div class="project-info">
+                    <h3>Ismail: Unrequited Heartache</h3>
+                    <p>A black background with the name 'Ismail' written in a flowing white script at the top. Below it, a sad quote reads 'i love him and miss him but it's all nothing to him, he doesn't care'. A small Instagram icon and '© ismail sopani all rights reserved.' are at the bottom</p>
+                    <div class="project-tags">
+                        <span>css</span>
+                        <span>node.js</span>
+                        <span>vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ismailsopani.vercel.app/">View Web</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://files.catbox.moe/6qh27i.jpg" alt="Halaman web gelap menampilkan empat nama dalam tulisan kursif putih di bagian bawah: Ismail, Syabila, Irpan, dan Dimas, masing-masing dengan ikon Instagram di bawahnya. Di kiri atas, ikon menu terlihat, dan teks 'Scroll down' muncul di kiri bawah. Latar belakang halaman ini adalah adegan gelap dari video musik rap.">
+                </div>
+                <div class="project-info">
+                    <h3>Our Team: The Names Behind the Sound</h3>
+                    <p>Dark webpage featuring four names in white cursive script at the bottom: Ismail, Syabila, Irpan, and Dimas, each with an Instagram icon below. In the top left, a menu icon is visible, and 'Scroll down' appears in the bottom left. The page's background is a dark scene from a rap music video.</p>
+                    <div class="project-tags">
+                        <span>css</span>
+                        <span>node.ns</span>
+                        <span>vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://jasunforeverteam.vercel.app/">View Web</a>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', function() {
+            const video = document.querySelector('.video-background');
+            const scrollPosition = window.pageYOffset;
+            video.style.transform = 'translateY(' + scrollPosition * 0.3 + 'px)';
+        });
+
+        // Card hover animation
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', x + 'px');
+                card.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+    </script>
+</body>
+</html>
+
